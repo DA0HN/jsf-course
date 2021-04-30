@@ -4,7 +4,7 @@ Curso da Udemy de Java Server Faces para iniciante.
 
 [Configuração básica de JSF usando maven](http://javaonlineguide.net/2015/06/jsf-2-2-hello-world-tutorial-with-example-basic-concepts.html)
 
-### Arquivo .xhtml
+### Page Structure
 
 ```xhtml
 <!DOCTYPE html>
@@ -40,3 +40,14 @@ Curso da Udemy de Java Server Faces para iniciante.
 |```more...```                |```...```      |
 
 
+### How To Reference JSF UI Components
+
+* Specify the JSF namespace at beginning of HTML file
+
+|JSF UI Component           | Description                             |
+|---------------------------|-----------------------------------------|
+|```Core components```      |```http://xmlns.jcp.org/jsf/core```      |
+|```HTML components```      |```http://xmlns.jcp.org/jsf/html```      |
+|```Facelets components```  |```http://xmlns.jcp.org/jsf/facelets```  |
+|```Composite components``` |```http://xmlns.jcp.org/jsf/composite``` |
+|```more...```              |```...```                                |
