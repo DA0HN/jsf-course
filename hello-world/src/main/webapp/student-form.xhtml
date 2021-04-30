@@ -11,11 +11,11 @@
 
     <h:body>
         <h:form>
-            First name: <h:inputText id="firstName" value="#{firstName}"/>
+            First name: <h:inputText id="firstName" value="#{student.firstName}"/>
             <br/><br/>
-            Last name: <h:inputText id="lastName" value="#{lastName}"/>
+            Last name: <h:inputText id="lastName" value="#{student.lastName}"/>
             <br/><br/>
-            <h:commandButton value="Submit"/>
+            <h:commandButton value="Submit" action="student-response"/>
         </h:form>
     </h:body>
 
