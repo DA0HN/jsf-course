@@ -51,3 +51,33 @@ Curso da Udemy de Java Server Faces para iniciante.
 |```Facelets components```  |```http://xmlns.jcp.org/jsf/facelets```  |
 |```Composite components``` |```http://xmlns.jcp.org/jsf/composite``` |
 |```more...```              |```...```                                |
+
+
+## What are Managed Beans?
+
+* A managed bean is a regular Java class
+* Commonly used to hold form data
+* Can also contain business logic
+* Created and managed by JSF... hence "managed bean" !
+
+**Warning: Not to be confused with Enterprise Java Beans (EJB)**
+
+### Requirements for Managed Beans
+
+* Must follow these rules:
+    * Public no-arg constructor
+    * Expose properties via public getter/setter methods
+* JSF 2 added support for annotation: ```@ManagedBean```
+
+### JSF Expression Language
+
+* The JSF expression language is used to
+  * Access properties of a managed bean
+  * Other logic functions are available too
+* Basic syntax: ```#{<beanName>.<property>}```
+* To access a bean setter property from JSF form:
+  * ```<h:inputText value="#{student.firstName}"/>```
+  * When form is submitted JSF will call: ```student.setFirstName```
+* To access a bean getter property from JSF form:
+  * ```Student's name is: #{student.firstName}```
+  * When page is processed JSF will call: ```student.getFirstName```
