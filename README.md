@@ -4,7 +4,7 @@ Curso da Udemy de Java Server Faces para iniciante.
 
 [Configuração básica de JSF usando maven](http://javaonlineguide.net/2015/06/jsf-2-2-hello-world-tutorial-with-example-basic-concepts.html)
 
-### Page Structure
+## Page Structure
 
 ```xhtml
 <!DOCTYPE html>
@@ -69,7 +69,71 @@ Curso da Udemy de Java Server Faces para iniciante.
     * Expose properties via public getter/setter methods
 * JSF 2 added support for annotation: ```@ManagedBean```
 
-### JSF Expression Language
+### Scopes of Managed Beans
+
+| Scope            | Description                                                     |
+|------------------|-----------------------------------------------------------------|
+|```Request```     | New bean is created for every request. Short-lived              |
+|```Session```     | Bean is created once for user's browser session. Unique for user|
+|```Application``` | Bean is created once for application and shared by ALL users    |
+
+#### Application Scope
+
+* Bean is created once for application and shared by ALL users.
+* Commonly used to share an instance of a utility class.
+* For example a database utility class.
+
+Example:
+
+```java
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+
+@Named                        // @ManagedBean = @Named (usando especificação do CDI)
+@ApplicationScoped            // Esse bean é compartilhado por todos os usuários
+public class Counter {
+  private int value = 0;
+  
+  public String increment() {
+    this.value++;             // incrementa o contador
+    return "increment-view";  // atualiza a tela
+  }
+}
+```
+
+```xhtml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xml:lang="en"
+      lang="en">
+
+  <h:outputText value="Counter value: #{counter.increment}"/>
+  <br/>
+  <h:form>
+    <h:commandButton value="Increment"
+                     action="#{counter.increment()}"
+    />
+  </h:form>
+</html>
+```
+
+#### Session Scope
+
+* Bean is created once for user's browser session. Unique for this user.
+* Commonly used when you need to keep track of the user's actions.
+  * Shopping cart
+  * Online banking
+  * Online Exam
+
+#### Request Scope
+
+* New bean is created for every request. Short lived.
+* Commonly used for submitting form data... one time use
+* _Note: This is the DEFAULT scope if none is specified_
+
+
+## JSF Expression Language
 
 * The JSF expression language is used to
   * Access properties of a managed bean
@@ -83,7 +147,7 @@ Curso da Udemy de Java Server Faces para iniciante.
   * When page is processed JSF will call: ```student.getFirstName```
   
 
-### JSF Validation Features
+## JSF Validation Features
 
 |Validation Features            |
 |-------------------------------|
