@@ -156,3 +156,131 @@ public class Counter {
 | validateDouble / validateLong |
 | validateRegex                 |
 | custom validation             |
+
+## Displaying data in List and Table
+
+The model:
+
+```java
+
+public class Student {
+
+  private String firstName;
+  private String lastName;
+  private String email;
+  
+  public Student(String firstName, String lastName, String email) {
+    // set members of Student...
+  }
+  
+  // getters and setters...
+
+}
+
+```
+
+The managed bean will provide a getter method for the "list" of data:
+
+```java
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+import java.util.ArrayList;
+
+@Named
+@ApplicationScoped  // one instance for all users
+public class StudentDataUtil {
+
+  private List<Student> students;
+
+  public StudentDataUtil() {
+    // load data in arraylist when the instance of StudentDataUtil is created
+    this.loadSampleData();
+  }
+
+  public void loadSampleData() {
+    students = new ArrayList<>();
+    students.add(new Student("firstName", "lastName", "email"));
+    // add some students here...
+  }
+
+  public List<Student> getStudents() {
+    return students;
+  }
+}
+```
+
+### List
+
+JSF page will loop over the data and generate an HTML unsorted list (ul):
+```xhtml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xml:lang="en"
+      lang="en">
+
+  <h:body>
+    <h3>student list</h3>
+    <hr/>
+    <ul>
+      <ui:repeat var="student" value="studentDataUtil.students">
+        <li>#{student.firstName} | #{student.lastName}</li>
+      </ui:repeat>
+    </ul>
+  </h:body>
+</html>
+```
+
+### Table
+
+* Can use JSF data tags to loop over various collections of data
+  * Arrays
+  * Lists
+  * Collections
+
+Using the bean ```StudentDataUtil.java``` and the model ```Student.java``` JSF page will loop over the data and 
+generate an 
+HTML table
+
+```xhtml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xml:lang="en"
+      lang="en">
+
+  <h:body>
+    <h3>student table</h3>
+    
+    <hr/>
+    
+    <h:dataTable value="#{studentDataUtil.students}" var="student" border="1">
+      
+      <h:column>
+        <!-- The column header-->
+        <f:facet name="header">First name</f:facet>
+        <!-- The value for each row-->
+        #{student.firstName}
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">Last name</f:facet>
+        #{student.lastName}
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">Email</f:facet>
+        #{student.email}
+      </h:column>
+      
+    </h:dataTable>
+  
+  </h:body>
+</html>
+```
+
+
+
