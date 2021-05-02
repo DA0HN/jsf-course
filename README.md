@@ -81,3 +81,14 @@ Curso da Udemy de Java Server Faces para iniciante.
 * To access a bean getter property from JSF form:
   * ```Student's name is: #{student.firstName}```
   * When page is processed JSF will call: ```student.getFirstName```
+  
+
+### JSF Validation Features
+
+|Validation Features            |
+|-------------------------------|
+| required                      |
+| validateLength                |
+| validateDouble / validateLong |
+| validateRegex                 |
+| custom validation             |
