@@ -15,7 +15,7 @@ import javax.inject.Named;
 @ApplicationScoped
 public class StudentService implements IStudentService {
 
-  private IStudentRepository repository;
+  private final IStudentRepository repository;
 
   @Inject
   public StudentService(@Named("repository") IStudentRepository repository) {

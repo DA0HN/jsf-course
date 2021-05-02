@@ -17,7 +17,7 @@ import java.util.List;
 @ApplicationScoped
 public class StudentRepository implements IStudentRepository {
 
-  private EntityManager manager;
+  private final EntityManager manager;
 
   @Inject
   public StudentRepository(EntityManager manager) {

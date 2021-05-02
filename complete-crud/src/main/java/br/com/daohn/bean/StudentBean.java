@@ -16,7 +16,7 @@ import java.io.Serializable;
 @SessionScoped
 public class StudentBean implements Serializable {
 
-  private IStudentService service;
+  private final IStudentService service;
 
   @Inject
   public StudentBean(@Named("service") IStudentService service) {
