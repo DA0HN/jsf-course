@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en"
+      lang="en">
+    <h:head>
+        <title>Title</title>
+
+        <style type="text/css">
+            .error {
+                color: red
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            First name: <h:inputText label="First name" value="#{student.firstName}"/>
+            <br/><br/>
+            Last name: <h:inputText label="Last name"
+                                    value="#{student.lastName}"
+                                    required="true"
+                                    id="last_name"
+                                    requiredMessage="Você precisa inserir o último nome"
+        />
+            <br/>
+            <h:message for="last_name" styleClass="error"/>
+            <br/><br/>
+            Email: <h:inputText id="email" label="Email" value="#{student.email}" required="true"
+                                requiredMessage="Você precisa inserir o email"
+            />
+            <br/>
+            <h:message for="email" styleClass="error"/>
+
+            <br/><br/>
+            <h:commandButton value="Submit" action="response"/>
+        </h:form>
+    </h:body>
+</html>
