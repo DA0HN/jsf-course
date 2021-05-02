@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ph="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>Drop down!</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            First name: <h:inputText id="firstName" value="#{studentDropDown.firstName}"/>
+            <br/><br/>
+            Last name: <h:inputText id="lastName" value="#{studentDropDown.lastName}"/>
+            <br/><br/>
+            <h:selectOneMenu value="#{studentDropDown.country}">
+                <f:selectItem itemValue="Brazil" itemLabel="Brazil"/>
+                <f:selectItem itemValue="France" itemLabel="France"/>
+                <f:selectItem itemValue="Germany" itemLabel="Germany"/>
+                <f:selectItem itemValue="India" itemLabel="India"/>
+                <f:selectItem itemValue="Turkey" itemLabel="Turkey"/>
+                <f:selectItem itemValue="United Kingdom" itemLabel="United Kingdom"/>
+                <f:selectItem itemValue="United States" itemLabel="United States"/>
+            </h:selectOneMenu>
+            <br/><br/>
+            <h:commandButton value="Submit" action="response"/>
+        </h:form>
+
+    </h:body>
+
+</html>
