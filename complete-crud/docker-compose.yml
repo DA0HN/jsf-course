@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  database:
+    container_name: jsf-course-database
+    image: jsf-course-database
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 'student_db'
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    volumes:
+      - jsf-volume:/var/lib/mysql
+    restart: on-failure
+    networks:
+      - db-network
+networks:
+  db-network:
+    driver: bridge
+volumes:
+  jsf-volume:
+    external: true
