@@ -19,6 +19,10 @@ public class StudentRadio implements Serializable {
   private String programmingLanguage;
 
   public StudentRadio() {
+    // pre populate the bean
+    this.firstName = "Gabriel";
+    this.lastName = "Honda";
+    this.programmingLanguage = "Java";
   }
 
   public String getFirstName() {
