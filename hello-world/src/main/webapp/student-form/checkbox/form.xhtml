@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Drop down!</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            First name: <h:inputText id="firstName" value="#{studentCheckBox.firstName}"/>
+            <br/><br/>
+            Last name: <h:inputText id="lastName" value="#{studentCheckBox.lastName}"/>
+            <br/><br/>
+            <h:selectManyCheckbox value="#{studentCheckBox.programmingLanguages}" onselect="">
+                <f:selectItem itemValue="Java" itemLabel="Java"/>
+                <f:selectItem itemValue="C#" itemLabel="C#"/>
+                <f:selectItem itemValue="PHP" itemLabel="PHP"/>
+                <f:selectItem itemValue="Ruby" itemLabel="Ruby"/>
+            </h:selectManyCheckbox>
+            <br/><br/>
+            <h:commandButton value="Submit" action="response"/>
+        </h:form>
+    </h:body>
+    <br/>
+    <ui:include src="../../footer.xhtml"/>
+</html>
