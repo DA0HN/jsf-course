@@ -17,6 +17,9 @@ public class Student implements Serializable {
   private String lastName;
   private String email;
 
+  private String freePasses;
+  private String postalCode;
+
   public Student() {
   }
 
@@ -42,5 +45,21 @@ public class Student implements Serializable {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getFreePasses() {
+    return freePasses;
+  }
+
+  public void setFreePasses(String freePasses) {
+    this.freePasses = freePasses;
+  }
+
+  public String getPostalCode() {
+    return postalCode;
+  }
+
+  public void setPostalCode(String postalCode) {
+    this.postalCode = postalCode;
   }
 }

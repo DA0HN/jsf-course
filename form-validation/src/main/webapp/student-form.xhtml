@@ -2,7 +2,8 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xml:lang="en"
       lang="en">
     <h:head>
         <title>Title</title>
@@ -18,22 +19,48 @@
         <h:form>
             First name: <h:inputText label="First name" value="#{student.firstName}"/>
             <br/><br/>
-            Last name: <h:inputText label="Last name"
-                                    value="#{student.lastName}"
-                                    required="true"
-                                    id="last_name"
-                                    requiredMessage="Você precisa inserir o último nome"
-        />
-            <br/>
-            <h:message for="last_name" styleClass="error"/>
-            <br/><br/>
-            Email: <h:inputText id="email" label="Email" value="#{student.email}" required="true"
-                                requiredMessage="Você precisa inserir o email"
+            Last name:
+            <h:inputText label="Last name"
+                         value="#{student.lastName}"
+                         required="true"
+                         id="last_name"
+                         requiredMessage="Você precisa inserir o último nome"
             />
             <br/>
+
+            <h:message for="last_name" styleClass="error"/>
+
+            <br/><br/>
+
+            Email:
+
+            <h:inputText id="email" label="Email" value="#{student.email}" required="true"
+                         requiredMessage="Você precisa inserir o email"
+            />
+            <br/>
+
             <h:message for="email" styleClass="error"/>
 
             <br/><br/>
+
+            Free Passes:
+            <h:inputText id="free_passes" label="Free passes"
+                         value="#{student.freePasses}">
+                <f:validateLongRange for="free_passes" minimum="0" maximum="10"/>
+            </h:inputText>
+            <h:message for="free_passes" styleClass="error"/>
+
+            <br/><br/>
+
+            Postal code
+            <h:inputText id="postal_code" label="Postal code"
+                         value="#{student.postalCode}">
+                <f:validateLength for="postal_code" minimum="5" maximum="5"/>
+            </h:inputText>
+            <h:message for="postal_code" styleClass="error"/>
+
+            <br/><br/>
+
             <h:commandButton value="Submit" action="response"/>
         </h:form>
     </h:body>
