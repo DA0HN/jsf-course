@@ -1,6 +1,10 @@
 package com.example.application;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -20,7 +24,22 @@ public class Student implements Serializable {
   private String freePasses;
   private String postalCode;
 
+  private String courseCode;
+
   public Student() {
+  }
+
+  public void validateTheCourseCode(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+
+    // if "value" does not pass validation based on your business rules then throw an exception
+    if(!((String) value).startsWith("DAO")) {
+      // Adds error message
+      var message = new FacesMessage("O código do curso precisa iniciar com 'DAO'");
+
+      throw new ValidatorException(message);
+    }
+    // if "value" passes validation, then this method ends gracefully
+
   }
 
   public String getFirstName() {
@@ -61,5 +80,13 @@ public class Student implements Serializable {
 
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
+  }
+
+  public String getCourseCode() {
+    return courseCode;
+  }
+
+  public void setCourseCode(String courseCode) {
+    this.courseCode = courseCode;
   }
 }

@@ -52,12 +52,21 @@
 
             <br/><br/>
 
-            Postal code
+            Postal code:
             <h:inputText id="postal_code" label="Postal code"
                          value="#{student.postalCode}">
                 <f:validateLength for="postal_code" minimum="5" maximum="5"/>
             </h:inputText>
             <h:message for="postal_code" styleClass="error"/>
+
+            <br/><br/>
+
+            Course code:
+            <h:inputText id="course_code" label="Course code"
+                         value="#{student.courseCode}"
+                         validator="#{student.validateTheCourseCode}">
+            </h:inputText>
+            <h:message for="course_code" styleClass="error"/>
 
             <br/><br/>
 
