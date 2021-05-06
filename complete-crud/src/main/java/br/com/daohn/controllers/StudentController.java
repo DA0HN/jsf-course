@@ -1,4 +1,4 @@
-package br.com.daohn.bean;
+package br.com.daohn.controllers;
 
 import br.com.daohn.model.Student;
 import br.com.daohn.services.IStudentService;
