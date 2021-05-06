@@ -1,22 +1,19 @@
-CREATE DATABASE student_db;
+CREATE DATABASE IF NOT EXISTS student_db;
 
 USE `student_db`;
 
 DROP TABLE IF EXISTS `student`;
 
-CREATE TABLE `student` (
-                           `id` int(11) NOT NULL AUTO_INCREMENT,
-                           `first_name` varchar(45) DEFAULT NULL,
-                           `last_name` varchar(45) DEFAULT NULL,
-                           `email` varchar(45) DEFAULT NULL,
-                           PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+create table student
+(
+    id        int auto_increment primary key,
+    firstName varchar(45) null,
+    lastName  varchar(45) null,
+    email     varchar(45) null
+);
 
-LOCK TABLES `student` WRITE;
-
-INSERT INTO `student` VALUES (1,'Mary','Public','mary@gmail.com'),
-                             (2,'John','Doe','john@gmail.com'),
-                             (3,'Ajay','Rao','ajay@gmail.com'),
-                             (4,'Bill','Neely','bill@gmail.com'),
-                             (5,'Maxwell','Dixon','max@gmail.com');
-UNLOCK TABLES;
+INSERT INTO student_db.student (id, firstName, lastName, email) VALUES (1, 'Mary', 'Public', 'mary@gmail.com');
+INSERT INTO student_db.student (id, firstName, lastName, email) VALUES (2, 'John', 'Doe', 'john@gmail.com');
+INSERT INTO student_db.student (id, firstName, lastName, email) VALUES (3, 'Ajay', 'Rao', 'ajay@gmail.com');
+INSERT INTO student_db.student (id, firstName, lastName, email) VALUES (4, 'Bill', 'Neely', 'bill@gmail.com');
+INSERT INTO student_db.student (id, firstName, lastName, email) VALUES (5, 'Maxwell', 'Dixon', 'max@gmail.com');
