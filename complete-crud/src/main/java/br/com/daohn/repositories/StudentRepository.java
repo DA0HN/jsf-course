@@ -25,21 +25,37 @@ public class StudentRepository implements IStudentRepository {
   }
 
   @Override public void save(Student student) {
+    this.manager.getTransaction().begin();
+    this.manager.persist(student);
+    this.manager.getTransaction().commit();
   }
 
   @Override public void update(Student student) {
-
+    this.manager.getTransaction().begin();
+    this.manager.merge(student);
+    this.manager.getTransaction().commit();
   }
 
   @Override public void delete(Student student) {
-
+    this.manager.getTransaction().begin();
+    this.manager.remove(student);
+    this.manager.getTransaction().commit();
   }
 
   @Override public Student findById(Long id) {
-    return null;
+    var query = this.manager.createQuery(
+      "SELECT student FROM Student student WHERE student.id = :id ",
+      Student.class
+    );
+    query.setParameter("id", id);
+    return query.getSingleResult();
   }
 
   @Override public List<Student> findAll() {
-    return null;
+    var query = this.manager.createQuery(
+      "SELECT student FROM Student student",
+      Student.class
+    );
+    return query.getResultList();
   }
 }
