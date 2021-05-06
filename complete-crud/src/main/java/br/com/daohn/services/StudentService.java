@@ -3,9 +3,10 @@ package br.com.daohn.services;
 import br.com.daohn.model.Student;
 import br.com.daohn.repositories.IStudentRepository;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -14,8 +15,8 @@ import java.util.List;
  * @since 02/05/2021
  */
 @Named("service")
-@ApplicationScoped
-public class StudentService implements IStudentService {
+@SessionScoped
+public class StudentService implements IStudentService, Serializable {
 
   private final IStudentRepository repository;
 
