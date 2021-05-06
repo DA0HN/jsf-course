@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
  */
 @ApplicationScoped
 public class DatabaseConfig {
+  // https://stackoverflow.com/questions/31374994/how-to-inject-entitymanager-in-cdi-weld
   @Produces
   @PersistenceContext(unitName = "student")
   private EntityManager entityManager;
