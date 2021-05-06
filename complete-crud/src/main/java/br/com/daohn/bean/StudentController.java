@@ -14,12 +14,12 @@ import java.io.Serializable;
  */
 @Named
 @SessionScoped
-public class StudentBean implements Serializable {
+public class StudentController implements Serializable {
 
   private final IStudentService service;
 
   @Inject
-  public StudentBean(@Named("service") IStudentService service) {
+  public StudentController(@Named("service") IStudentService service) {
     this.service = service;
   }
 }
