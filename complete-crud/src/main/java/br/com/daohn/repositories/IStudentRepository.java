@@ -10,8 +10,7 @@ import java.util.List;
  * @since 02/05/2021
  */
 public interface IStudentRepository {
-  void save(Student student);
-  void update(Student student);
+  void saveOrUpdate(Student student);
   void delete(Student student);
   Student findById(Long id);
   List<Student> findAll();
