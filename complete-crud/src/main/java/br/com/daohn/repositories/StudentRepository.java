@@ -22,14 +22,11 @@ public class StudentRepository implements IStudentRepository {
   private final SessionFactory sessionFactory;
 
     @Inject
-    public StudentRepository(@MySQLDatabase SessionFactory sessionFactory) {
+    public StudentRepository(@SessionQualifier SessionFactory sessionFactory) {
       this.sessionFactory = sessionFactory;
     }
 
     @Override public void saveOrUpdate(Student student) {
-      //    this.manager.getTransaction().begin();
-      //    this.manager.persist(student);
-      //    this.manager.getTransaction().commit();
       Session session = null;
       try {
         session = sessionFactory.openSession();
