@@ -1,10 +1,12 @@
 package br.com.daohn.services;
 
+import br.com.daohn.model.Student;
 import br.com.daohn.repositories.IStudentRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 /**
  * Created by daohn on 02/05/2021
@@ -23,4 +25,23 @@ public class StudentService implements IStudentService {
   }
 
 
+  @Override public void save(Student student) {
+    // TODO: implementar método save
+  }
+
+  @Override public void update(Student student) {
+    // TODO: implementar método update
+  }
+
+  @Override public void delete(Student student) {
+    // TODO: implementar método delete
+  }
+
+  @Override public Student findById(Long id) {
+    return this.repository.findById(id);
+  }
+
+  @Override public List<Student> findAll() {
+    return this.repository.findAll();
+  }
 }
