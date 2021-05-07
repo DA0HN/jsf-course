@@ -19,20 +19,17 @@ Curso da Udemy de Java Server Faces para iniciante.
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <
-    --- importação de namespace
-
+    <!--importação de namespace-->
     <h:head>
-        <
-        --- chamada de um componente jsf
-        <title>Student Registration Form</title>
-    </h:head>
+      <!--chamada de um componente jsf-->
+      <title>Student Registration Form</title>
+  </h:head>
 
-    <h:body>
-        <h:form>
-            ...
-        </h:form>
-    </h:body>
+  <h:body>
+      <h:form>
+          ...
+      </h:form>
+  </h:body>
 
 </html>
 ```
