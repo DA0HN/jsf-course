@@ -27,11 +27,19 @@
             <div id="content">
                 <h:messages globalOnly="true"/>
 
+                <h:button value="Add Student" styleClass="add-student-button"
+                          outcome="add-student-form"
+                />
+
                 <h:form>
                     <h:dataTable value="#{studentController.students}" var="student"
                                  styleClass="student-table"
                                  headerClass="student-table-header"
                                  rowClasses="student-table-even-row,student-table-odd-row">
+                        <h:column>
+                            <f:facet name="header">Identifier</f:facet>
+                            <h:outputText value="#{student.id}"/>
+                        </h:column>
                         <h:column>
                             <f:facet name="header">First name</f:facet>
                             <h:outputText value="#{student.firstName}"/>
@@ -48,8 +56,8 @@
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header">Operations</f:facet>
-                            <h:commandLink value="operação"/>
+                            <f:facet name="header">Actions</f:facet>
+                            <h:commandLink value="delete"/> | <h:commandLink value="update"/>
                         </h:column>
                     </h:dataTable>
                 </h:form>

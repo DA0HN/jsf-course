@@ -27,7 +27,7 @@ public class StudentService implements IStudentService, Serializable {
 
 
   @Override public void save(Student student) {
-    // TODO: implementar método save
+    this.repository.saveOrUpdate(student);
   }
 
   @Override public void update(Student student) {
