@@ -14,7 +14,7 @@ html, body {
 
 .student-table-header {
     border-bottom: 1px solid gray;
-    background: none repeat scroll 0 0 #84c7f6;
+    background: none repeat scroll 0 0 #38a6fc;
     padding: 10px;
     color: #ffffff;
 }
@@ -27,7 +27,7 @@ html, body {
 
 .student-table-even-row {
     border-top: 1px solid gray;
-    background: none repeat scroll 0 0 #00ccff;
+    background: none repeat scroll 0 0 #a6d9e3;
     text-align: center;
 }
 
