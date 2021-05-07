@@ -4,6 +4,14 @@ Curso da Udemy de Java Server Faces para iniciante.
 
 [Configuração básica de JSF usando maven](http://javaonlineguide.net/2015/06/jsf-2-2-hello-world-tutorial-with-example-basic-concepts.html)
 
+### Links uteis
+
+* [documentação weld jboss](https://docs.jboss.org/cdi/spec/1.2/cdi-spec.html#_relationship_to_dependency_injection_for_java)
+* [cdi reference impl weld jboss](https://docs.jboss.org/weld/reference/latest/en-US/html/ee.html#d0e4657)
+* [documentação cdi oracle](https://docs.oracle.com/javaee/7/tutorial/cdi-adv-examples003.htm#JEETT01139)
+* [cdi weld inject](https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
+
+
 ## Page Structure
 
 ```xhtml
