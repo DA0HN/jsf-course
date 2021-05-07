@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" xml:lang="en"
+      lang="en">
+
+    <h:head>
+        <title>FooBar University</title>
+
+        <h:outputStylesheet library="css" name="style.css"/>
+    </h:head>
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{studentController.loadStudent()}"/>
+    </f:metadata>
+
+    <h:body>
+        <div id="wrapper">
+            <div id="header">
+                <h2>FooBar University</h2>
+            </div>
+        </div>
+
+        <div id="container">
+            <div id="content">
+                <h:messages globalOnly="true"/>
+
+                <h:form>
+                    <h:dataTable value="#{studentController.students}" var="student"
+                                 styleClass="student-table"
+                                 headerClass="student-table-header"
+                                 rowClasses="student-table-even-row,student-table-odd-row">
+                        <h:column>
+                            <f:facet name="header">First name</f:facet>
+                            <h:outputText value="#{student.firstName}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Last name</f:facet>
+                            <h:outputText value="#{student.lastName}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Email</f:facet>
+                            <h:outputText value="#{student.email}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Operations</f:facet>
+                            <h:commandLink value="operação"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+
+</html>
