@@ -10,6 +10,7 @@ Curso da Udemy de Java Server Faces para iniciante.
 * [cdi reference impl weld jboss](https://docs.jboss.org/weld/reference/latest/en-US/html/ee.html#d0e4657)
 * [documentação cdi oracle](https://docs.oracle.com/javaee/7/tutorial/cdi-adv-examples003.htm#JEETT01139)
 * [cdi weld inject](https://www.sitepoint.com/cdi-weld-inject-jpa-hibernate-entity-managers/)
+* [simple crud table with JSF 2.3](https://rieckpil.de/howto-simple-crud-table-with-jsf-2-3-and-primefaces/)
 
 
 ## Page Structure
