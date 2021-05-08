@@ -3,6 +3,8 @@ package br.com.daohn.controllers;
 import br.com.daohn.model.Student;
 import br.com.daohn.services.IStudentService;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -49,6 +51,8 @@ public class StudentController implements Serializable {
     }
     catch(Exception exception) {
       logger.log(Level.SEVERE, "Error adding students", exception);
+      // add error message for JSF page
+      addErrorMessage(exception);
       return null;
     }
     return "list-students?faces-redirect=true";
@@ -61,6 +65,8 @@ public class StudentController implements Serializable {
     }
     catch(Exception exception) {
       logger.log(Level.SEVERE, "Error deleting student: " + student, exception);
+      // add error message for JSF page
+      addErrorMessage(exception);
       return null;
     }
     return "list-students?faces-redirect=true";
@@ -73,6 +79,8 @@ public class StudentController implements Serializable {
     }
     catch(Exception exception) {
       logger.log(Level.SEVERE, "Error deleting student: " + student, exception);
+      // add error message for JSF page
+      addErrorMessage(exception);
       return null;
     }
     return "list-students?faces-redirect=true";
@@ -94,11 +102,16 @@ public class StudentController implements Serializable {
       logger.log(Level.SEVERE, "Error loading student id: " + id, exception);
 
       // add error message for JSF page
-      //      addErrorMessage(exc);
+      addErrorMessage(exception);
 
       return null;
     }
     return "update-student-form.xhtml;includeViewParams=true";
+  }
+
+  private void addErrorMessage(Exception exception) {
+    FacesMessage message = new FacesMessage("Error: " + exception.getMessage());
+    FacesContext.getCurrentInstance().addMessage(null, message);
   }
 
   public Student getStudent() {
