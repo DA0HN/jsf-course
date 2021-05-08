@@ -24,7 +24,7 @@ public class StudentController implements Serializable {
   private final IStudentService service;
   private final Logger logger = Logger.getLogger(getClass().getName());
   private List<Student> students;
-  private final Student student = new Student();
+  private Student student = new Student();
 
   @Inject
   public StudentController(@Named("service") IStudentService service) {
@@ -48,7 +48,7 @@ public class StudentController implements Serializable {
       this.service.save(student);
     }
     catch(Exception exception) {
-      logger.log(Level.SEVERE,"Error adding students",exception);
+      logger.log(Level.SEVERE, "Error adding students", exception);
       return null;
     }
     return "list-students?faces-redirect=true";
@@ -64,6 +64,41 @@ public class StudentController implements Serializable {
       return null;
     }
     return "list-students?faces-redirect=true";
+  }
+
+  public String update(Student student) {
+    logger.info("Delete student: " + student);
+    try {
+      this.service.update(student);
+    }
+    catch(Exception exception) {
+      logger.log(Level.SEVERE, "Error deleting student: " + student, exception);
+      return null;
+    }
+    return "list-students?faces-redirect=true";
+  }
+
+  public String findById(Long id) {
+
+    logger.info("Loading student: " + id);
+
+    try {
+      Student aStudent = this.service.findById(id);
+      this.student.setId(aStudent.getId());
+      this.student.setFirstName(aStudent.getFirstName());
+      this.student.setLastName(aStudent.getLastName());
+      this.student.setEmail(aStudent.getEmail());
+    }
+    catch(Exception exception) {
+      // send this to server logs
+      logger.log(Level.SEVERE, "Error loading student id: " + id, exception);
+
+      // add error message for JSF page
+      //      addErrorMessage(exc);
+
+      return null;
+    }
+    return "update-student-form.xhtml;includeViewParams=true";
   }
 
   public Student getStudent() {

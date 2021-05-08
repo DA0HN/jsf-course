@@ -59,9 +59,11 @@
                             <f:facet name="header">Actions</f:facet>
                             <h:commandLink value="delete"
                                            action="#{studentController.delete(student)}"/>
-                            <!--                                           onclick="if (!confirm('Are you sure you want to delete this student?')) return false"-->
+                            <!--onclick="if (!confirm('Are you sure you want to delete this student?')) return false"-->
                             |
-                            <h:commandLink value="update"/>
+                            <h:commandLink value="update"
+                            action="#{studentController.findById(student.id)}"
+                            />
                         </h:column>
                     </h:dataTable>
                 </h:form>
