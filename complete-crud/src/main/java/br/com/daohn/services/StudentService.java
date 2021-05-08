@@ -31,11 +31,11 @@ public class StudentService implements IStudentService, Serializable {
   }
 
   @Override public void update(Student student) {
-    // TODO: implementar método update
+    this.repository.saveOrUpdate(student);
   }
 
   @Override public void delete(Student student) {
-    // TODO: implementar método delete
+    this.repository.delete(student);
   }
 
   @Override public Student findById(Long id) {
