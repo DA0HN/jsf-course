@@ -24,7 +24,7 @@ public class StudentController implements Serializable {
   private final IStudentService service;
   private final Logger logger = Logger.getLogger(getClass().getName());
   private List<Student> students;
-  private Student student = new Student();
+  private final Student student = new Student();
 
   @Inject
   public StudentController(@Named("service") IStudentService service) {
@@ -42,13 +42,25 @@ public class StudentController implements Serializable {
     this.students = this.service.findAll();
   }
 
-  public String addStudent(Student student) {
+  public String save(Student student) {
     logger.info("Adding student: " + student);
     try {
       this.service.save(student);
     }
     catch(Exception exception) {
       logger.log(Level.SEVERE,"Error adding students",exception);
+      return null;
+    }
+    return "list-students?faces-redirect=true";
+  }
+
+  public String delete(Student student) {
+    logger.info("Delete student: " + student);
+    try {
+      this.service.delete(student);
+    }
+    catch(Exception exception) {
+      logger.log(Level.SEVERE, "Error deleting student: " + student, exception);
       return null;
     }
     return "list-students?faces-redirect=true";
