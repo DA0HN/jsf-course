@@ -1,4 +1,4 @@
-package com.sales.services;
+package com.gabriel.services;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;

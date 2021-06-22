@@ -1,6 +1,6 @@
-package com.sales.services;
+package com.gabriel.services;
 
-import com.sales.entities.Produto;
+import com.gabriel.entities.Produto;
 
 import java.util.List;
 

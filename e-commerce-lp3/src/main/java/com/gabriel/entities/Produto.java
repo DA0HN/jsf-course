@@ -1,4 +1,4 @@
-package com.sales.entities;
+package com.gabriel.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

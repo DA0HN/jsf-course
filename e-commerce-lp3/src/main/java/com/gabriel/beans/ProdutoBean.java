@@ -1,9 +1,8 @@
-package com.sales.beans;
+package com.gabriel.beans;
 
-import com.sales.entities.Produto;
-import com.sales.services.IProdutoService;
+import com.gabriel.entities.Produto;
+import com.gabriel.services.IProdutoService;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;

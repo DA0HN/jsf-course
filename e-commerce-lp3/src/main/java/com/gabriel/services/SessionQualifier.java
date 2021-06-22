@@ -1,4 +1,4 @@
-package com.sales.services;
+package com.gabriel.services;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

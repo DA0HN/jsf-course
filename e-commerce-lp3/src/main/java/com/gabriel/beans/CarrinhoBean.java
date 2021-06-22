@@ -1,7 +1,7 @@
-package com.sales.beans;
+package com.gabriel.beans;
 
-import com.sales.entities.Item;
-import com.sales.entities.Produto;
+import com.gabriel.entities.Item;
+import com.gabriel.entities.Produto;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
