@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 @Named
 @SessionScoped
 public class ProdutoBean implements Serializable {

@@ -12,6 +12,10 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 @ApplicationScoped
 @Named("produtoService")
 public class ProdutoService implements Serializable, IProdutoService {

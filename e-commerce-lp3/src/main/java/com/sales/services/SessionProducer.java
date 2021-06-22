@@ -8,6 +8,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 @Named
 @ApplicationScoped
 public class SessionProducer {

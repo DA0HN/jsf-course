@@ -1,5 +1,9 @@
 package com.sales.entities;
 
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 public class Item {
 
   private Produto produto;

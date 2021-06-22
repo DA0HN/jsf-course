@@ -9,6 +9,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 @Named
 @ViewScoped
 public class CarrinhoBean implements Serializable {
@@ -41,7 +45,7 @@ public class CarrinhoBean implements Serializable {
 
   private int existeItem(Produto produto) {
     for(int i = 0; i < itens.size(); i++) {
-      if(itens.get(i).getProduto().getId() == produto.getId()) {
+      if(itens.get(i).getProduto().getId().equals(produto.getId())) {
         return i;
       }
     }

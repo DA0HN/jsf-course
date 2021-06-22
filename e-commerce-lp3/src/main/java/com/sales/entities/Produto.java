@@ -11,6 +11,11 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 
+
+/**
+ * @author daohn
+ * @since 21/06/2021
+ */
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable {
