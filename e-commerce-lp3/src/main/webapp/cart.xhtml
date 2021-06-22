@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Carrinho de Compras</title>
+    </head>
+    <body>
+        <h3>Itens do Carrinho</h3>
+        <h:form>
+            <table border="1" cellpadding="2" cellspacing="2">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Subtotal</th>
+                </tr>
+                <ui:repeat var="item" value="#{carrinhoBean.itens}">
+                    <tr>
+                        <td>#{item.produto.id}</td>
+                        <td>#{item.produto.nome}</td>
+                        <td>#{item.produto.preco}</td>
+                        <td>#{item.quantidade}</td>
+                        <td>#{item.quantidade*item.produto.preco}</td>
+                    </tr>
+                </ui:repeat>
+
+            </table>
+        </h:form>
+    </body>
+</html>

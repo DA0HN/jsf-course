@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head/>
+
+    <f:event type="preRenderView" listener="#{produtoBean.initialize}"/>
+
+    <body>
+
+        <h3>Lista de Produto</h3>
+        <h:form prependId="false">
+            <h:dataTable var="produto" value="#{produtoBean.produtos}"
+                         border="1" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputLabel value="#{produto.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    <h:outputLabel value="#{produto.nome}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                    <h:outputLabel value="#{produto.descricao}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Preço</f:facet>
+                    <h:outputLabel value="#{produto.preco}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Quantidade</f:facet>
+                    <h:outputLabel value="#{produto.quantidade}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputLabel value="#{produto.status}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Opção</f:facet>
+                    <h:commandLink value="Adicionar no carrinho"
+                                   action="#{carrinhoBean.adicionarProdutoNoCarrinho(produto)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+    </body>
+</html>
