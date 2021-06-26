@@ -40,13 +40,15 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Status</f:facet>
-                    <h:outputLabel value="#{product.status}" class="alert alert-danger"/>
+                    <h:outputLabel value="#{product.status ? 'Em estoque' : 'Em falta' }"
+                                   styleClass="#{!product.status ? 'text-danger' : ''}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Opção</f:facet>
                     <h:commandLink value="Adicionar no carrinho"
                                    action="#{cart.addProdutoInCart(product)}"
-                        class="btn btn-success"
+                                   styleClass="#{!product.status ? 'btn btn-success disabled' : 'btn btn-success'}"
+                                   disabled="#{!product.status}"
                     />
                 </h:column>
             </h:dataTable>

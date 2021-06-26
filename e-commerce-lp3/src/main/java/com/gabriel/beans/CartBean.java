@@ -46,7 +46,7 @@ public class CartBean implements Serializable {
     return "cart?faces-redirect=true";
   }
 
-  public String finalizarCompra() {
+  public String closePurchase() {
 
     this.getItens().forEach(item -> {
       var purchaseQuantity = item.getQuantity();

@@ -18,7 +18,7 @@
                 </div>
 
 
-                <div class="row mb-12">
+                <div class="row">
 
                     <div class="col-12">
                         <h:dataTable var="item" value="#{cart.itens}"
@@ -64,7 +64,7 @@
                                              value="Esvaziar carrinho"
                                              class="btn btn-danger"
                             />
-                            <h:commandButton actiosn="#{cart.finalizarCompra()}"
+                            <h:commandButton actiosn="#{cart.closePurchase()}"
                                              value="Finalizar compra!"
                                              class="btn btn-success"
                             />
