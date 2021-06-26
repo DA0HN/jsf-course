@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
     <h:head/>
 
     <f:event type="preRenderView" listener="#{stock.initialize}"/>
@@ -13,7 +13,8 @@
         <h3>Lista de Produto</h3>
         <h:form prependId="false">
             <h:dataTable var="product" value="#{stock.products}"
-                         border="1" cellpadding="2" cellspacing="2">
+                         border="1" cellpadding="2" cellspacing="2"
+                         class="table table-striped table-hover table-bordered">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
                     <h:outputLabel value="#{product.id}"/>
@@ -39,12 +40,14 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Status</f:facet>
-                    <h:outputLabel value="#{product.status}"/>
+                    <h:outputLabel value="#{product.status}" class="alert alert-danger"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Opção</f:facet>
                     <h:commandLink value="Adicionar no carrinho"
-                                   action="#{cart.addProdutoInCart(product)}"/>
+                                   action="#{cart.addProdutoInCart(product)}"
+                        class="btn btn-success"
+                    />
                 </h:column>
             </h:dataTable>
         </h:form>
