@@ -25,7 +25,7 @@ public class CartBean implements Serializable {
   private final Map<Product, Item> itens;
 
   @Inject
-  public CartBean(@Named("produtoService") IProductService service) {
+  public CartBean(@Named("service") IProductService service) {
     this.service = service;
     this.itens = new HashMap<>();
   }
