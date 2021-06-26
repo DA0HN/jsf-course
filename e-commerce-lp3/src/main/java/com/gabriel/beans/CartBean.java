@@ -61,4 +61,9 @@ public class CartBean implements Serializable {
 
     return "index?faces-redirect=true";
   }
+
+  public String clearCart() {
+    this.itens.clear();
+    return "index?faces-redirect=true";
+  }
 }
