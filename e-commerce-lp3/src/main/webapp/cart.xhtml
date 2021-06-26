@@ -22,20 +22,21 @@
                 </tr>
                 <ui:repeat var="item" value="#{carrinhoBean.itens}">
                     <tr>
-                        <td>#{item.produto.id}</td>
-                        <td>#{item.produto.nome}</td>
-                        <td>#{item.produto.preco}</td>
-                        <td>#{item.quantidade}</td>
+                        <td>#{item.product.id}</td>
+                        <td>#{item.product.name}</td>
+                        <td>#{item.product.price}</td>
+                        <td>#{item.quantity}</td>
                         <td>
-                            <h:outputText value="#{item.valorTotal()}">
+                            <h:outputText value="#{item.subtotal()}">
                                 <f:convertNumber type="number" groupingUsed="true" minFractionDigits="2"
                                                  pattern="#0.00"/>
                             </h:outputText>
                         </td>
                     </tr>
                 </ui:repeat>
-
             </table>
+            <h:commandButton action="index?faces-redirect=true" value="Voltar"/>
+            <h:commandButton action="#{carrinhoBean.finalizarCompra()}" value="Finalizar compra!"/>
         </h:form>
     </body>
 </html>

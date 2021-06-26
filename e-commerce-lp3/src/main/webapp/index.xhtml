@@ -6,13 +6,13 @@
 
     <h:head/>
 
-    <f:event type="preRenderView" listener="#{produtoBean.initialize}"/>
+    <f:event type="preRenderView" listener="#{estoque.initialize}"/>
 
     <body>
 
         <h3>Lista de Produto</h3>
         <h:form prependId="false">
-            <h:dataTable var="produto" value="#{produtoBean.produtos}"
+            <h:dataTable var="produto" value="#{estoque.produtos}"
                          border="1" cellpadding="2" cellspacing="2">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
@@ -20,22 +20,22 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Nome</f:facet>
-                    <h:outputLabel value="#{produto.nome}"/>
+                    <h:outputLabel value="#{produto.name}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Descrição</f:facet>
-                    <h:outputLabel value="#{produto.descricao}"/>
+                    <h:outputLabel value="#{produto.description}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Preço</f:facet>
-                    <h:outputText value="#{produto.preco}">
+                    <h:outputText value="#{produto.price}">
                         <f:convertNumber type="number" groupingUsed="true" minFractionDigits="2"
                                          pattern="#0.00"/>
                     </h:outputText>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Quantidade</f:facet>
-                    <h:outputLabel value="#{produto.quantidade}"/>
+                    <h:outputLabel value="#{produto.quantity}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Status</f:facet>
