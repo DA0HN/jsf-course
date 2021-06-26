@@ -52,7 +52,7 @@ public class Product implements Serializable {
 
   public void updateStock(int purchaseQuantity) {
 
-    this.quantity -= purchaseQuantity;
+    this.quantity += purchaseQuantity;
 
     if(this.quantity <= 0) {
       this.quantity = 0;

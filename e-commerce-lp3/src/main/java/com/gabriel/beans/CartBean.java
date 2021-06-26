@@ -52,7 +52,7 @@ public class CartBean implements Serializable {
       var purchaseQuantity = item.getQuantity();
       var produto = item.getProduct();
 
-      produto.updateStock(purchaseQuantity);
+      produto.updateStock(-purchaseQuantity);
 
       service.save(produto);
     });

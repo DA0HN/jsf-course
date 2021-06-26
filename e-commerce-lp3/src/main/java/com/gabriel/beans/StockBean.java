@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 
 
 /**
@@ -43,4 +44,29 @@ public class StockBean implements Serializable {
     }
   }
 
+  public String renewStock() {
+    var products = this.productService.findAll();
+
+    for(var product : products) {
+      renewWithRandomStock(
+        product,
+        p -> p.setStatus(true),
+        p -> p.updateStock(this.generateRandomValue())
+      );
+      productService.save(product);
+    }
+
+    return "index?faces-redirect=true";
+  }
+
+  private int generateRandomValue() {
+    int max = 15, min = 5;
+    return (int) ((Math.random() * (max - min)) + min);
+  }
+
+  @SafeVarargs private void renewWithRandomStock(Product product, Consumer<Product>... updates) {
+    for(var update : updates) {
+      update.accept(product);
+    }
+  }
 }
