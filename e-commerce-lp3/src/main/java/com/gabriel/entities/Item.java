@@ -22,7 +22,7 @@ public class Item {
   }
 
   public static Item createItemWithZeroQuantidade(Produto produto) {
-    return new Item(produto, 0);
+    return new Item(produto, 1);
   }
 
   public Produto getProduto() {
