@@ -24,7 +24,7 @@
                         <td>#{item.produto.nome}</td>
                         <td>#{item.produto.preco}</td>
                         <td>#{item.quantidade}</td>
-                        <td>#{item.quantidade*item.produto.preco}</td>
+                        <td>#{item.valorTotal()}</td>
                     </tr>
                 </ui:repeat>
 
