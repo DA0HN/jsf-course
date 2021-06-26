@@ -18,7 +18,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "produto")
-public class Produto implements Serializable {
+public class Product implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -33,10 +33,10 @@ public class Produto implements Serializable {
   @Column(name = "status")
   private Boolean status;
 
-  public Produto() {
+  public Product() {
   }
 
-  public Produto(
+  public Product(
     String name,
     String description,
     BigDecimal price,
@@ -115,9 +115,9 @@ public class Produto implements Serializable {
   @Override public boolean equals(Object o) {
     if(this == o) return true;
     if(o == null || getClass() != o.getClass()) return false;
-    Produto produto = (Produto) o;
-    return id.equals(produto.id) && name.equals(produto.name) && description.equals(produto.description) && price.equals(
-      produto.price) && quantity.equals(produto.quantity) && status.equals(produto.status);
+    Product product = (Product) o;
+    return id.equals(product.id) && name.equals(product.name) && description.equals(product.description) && price.equals(
+      product.price) && quantity.equals(product.quantity) && status.equals(product.status);
   }
 
   @Override public int hashCode() {

@@ -1,6 +1,6 @@
 package com.gabriel.services;
 
-import com.gabriel.domain.Produto;
+import com.gabriel.domain.Product;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,6 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,24 +18,24 @@ import java.util.List;
  * @since 21/06/2021
  */
 @ApplicationScoped
-@Named("produtoService")
-public class ProdutoService implements Serializable, IProdutoService {
+@Named("service")
+public class ProductService implements Serializable, IProductService {
 
   private final SessionFactory sessionFactory;
 
   @Inject
-  public ProdutoService(@SessionQualifier SessionFactory sessionFactory) {
+  public ProductService(@SessionQualifier SessionFactory sessionFactory) {
     this.sessionFactory = sessionFactory;
   }
 
-  @Override public void salvar(Produto produto) {
+  @Override public void save(Product product) {
     Session session = null;
     try {
       session = sessionFactory.openSession();
 
       session.beginTransaction();
 
-      session.saveOrUpdate(produto);
+      session.saveOrUpdate(product);
 
       session.getTransaction().commit();
 
@@ -47,17 +48,16 @@ public class ProdutoService implements Serializable, IProdutoService {
     }
   }
 
-  @Override public List<Produto> buscarTodos() {
+  @Override public List<Product> findAll() {
     try(Session session = sessionFactory.openSession()) {
 
-      Query<Produto> query = session.createQuery("SELECT produto FROM Produto produto", Produto.class);
+      Query<Product> query = session.createQuery("SELECT produto FROM Product produto", Product.class);
 
       return query.getResultList();
     }
     catch(Exception e) {
       e.printStackTrace();
-
-      return null;
+      return Collections.emptyList();
     }
   }
 

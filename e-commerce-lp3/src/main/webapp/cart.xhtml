@@ -20,7 +20,7 @@
                     <th>Quantidade</th>
                     <th>Subtotal</th>
                 </tr>
-                <ui:repeat var="item" value="#{carrinhoBean.itens}">
+                <ui:repeat var="item" value="#{cart.itens}">
                     <tr>
                         <td>#{item.product.id}</td>
                         <td>#{item.product.name}</td>
@@ -36,7 +36,7 @@
                 </ui:repeat>
             </table>
             <h:commandButton action="index?faces-redirect=true" value="Voltar"/>
-            <h:commandButton action="#{carrinhoBean.finalizarCompra()}" value="Finalizar compra!"/>
+            <h:commandButton action="#{cart.finalizarCompra()}" value="Finalizar compra!"/>
         </h:form>
     </body>
 </html>

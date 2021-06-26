@@ -6,45 +6,45 @@
 
     <h:head/>
 
-    <f:event type="preRenderView" listener="#{estoque.initialize}"/>
+    <f:event type="preRenderView" listener="#{stock.initialize}"/>
 
     <body>
 
         <h3>Lista de Produto</h3>
         <h:form prependId="false">
-            <h:dataTable var="produto" value="#{estoque.produtos}"
+            <h:dataTable var="product" value="#{stock.products}"
                          border="1" cellpadding="2" cellspacing="2">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
-                    <h:outputLabel value="#{produto.id}"/>
+                    <h:outputLabel value="#{product.id}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Nome</f:facet>
-                    <h:outputLabel value="#{produto.name}"/>
+                    <h:outputLabel value="#{product.name}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Descrição</f:facet>
-                    <h:outputLabel value="#{produto.description}"/>
+                    <h:outputLabel value="#{product.description}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Preço</f:facet>
-                    <h:outputText value="#{produto.price}">
+                    <h:outputText value="#{product.price}">
                         <f:convertNumber type="number" groupingUsed="true" minFractionDigits="2"
                                          pattern="#0.00"/>
                     </h:outputText>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Quantidade</f:facet>
-                    <h:outputLabel value="#{produto.quantity}"/>
+                    <h:outputLabel value="#{product.quantity}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Status</f:facet>
-                    <h:outputLabel value="#{produto.status}"/>
+                    <h:outputLabel value="#{product.status}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Opção</f:facet>
                     <h:commandLink value="Adicionar no carrinho"
-                                   action="#{carrinhoBean.addProdutoInCart(produto)}"/>
+                                   action="#{cart.addProdutoInCart(product)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>

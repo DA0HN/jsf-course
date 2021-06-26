@@ -10,10 +10,10 @@ import java.util.Objects;
 public class Item {
 
   @ManagedProperty(value = "#{item.product}")
-  private Produto product;
+  private Product product;
   private Integer quantity;
 
-  public Item(Produto product, Integer quantity) {
+  public Item(Product product, Integer quantity) {
     this.product = product;
     this.quantity = quantity;
   }
@@ -21,15 +21,15 @@ public class Item {
   public Item() {
   }
 
-  public static Item createItemWithZeroQuantidade(Produto produto) {
-    return new Item(produto, 1);
+  public static Item createItemWithZeroQuantidade(Product product) {
+    return new Item(product, 1);
   }
 
-  public Produto getProduct() {
+  public Product getProduct() {
     return product;
   }
 
-  public void setProduct(Produto product) {
+  public void setProduct(Product product) {
     this.product = product;
   }
 
