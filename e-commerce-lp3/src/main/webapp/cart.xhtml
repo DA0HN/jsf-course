@@ -6,13 +6,23 @@
 
     <h:outputStylesheet library="css" name="bootstrap.min.css"/>
 
+    <style type="text/css">
+        .btn-purchase {
+            float: right;
+            margin-left: 10px;
+        }
+        .btn-clear {
+            float: right;
+        }
+    </style>
+
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Carrinho de Compras</title>
     </h:head>
     <h:body>
         <h:form>
-            <div class="container">
+            <div class="container-fluid">
                 <div>
                     <h3>Itens do Carrinho</h3>
                 </div>
@@ -52,22 +62,23 @@
                         </h:dataTable>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row justify-content-between">
+                    <div class="col-md-7">
                         <h:commandButton action="index?faces-redirect=true"
                                          value="Voltar"
                                          class="btn btn-primary"
+
                         />
                     </div>
-                    <div class="col-md-4 col-md-offset-4">
-                            <h:commandButton action="#{cart.clearCart()}"
-                                             value="Esvaziar carrinho"
-                                             class="btn btn-danger"
-                            />
-                            <h:commandButton action="#{cart.closePurchase()}"
-                                             value="Finalizar compra!"
-                                             class="btn btn-success"
-                            />
+                    <div class="col-md-5">
+                        <h:commandButton action="#{cart.closePurchase()}"
+                                         value="Finalizar compra!"
+                                         styleClass="btn btn-success btn-purchase"
+                        />
+                        <h:commandButton action="#{cart.clearCart()}"
+                                         value="Esvaziar carrinho"
+                                         styleClass="btn btn-danger btn-clear"
+                        />
                     </div>
                 </div>
             </div>
